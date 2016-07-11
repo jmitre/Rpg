@@ -31,5 +31,14 @@ describe('Sign up', function(){
     });
   });
 
+  it('should redirect the user to the character creation page', function(){
+    element(by.id('username_input')).sendKeys('Jay');
+    element(by.id('password_input')).sendKeys('password');
+    element(by.id('create_account_button')).click().then(function(){
+      browser.getCurrentUrl().then(function(url){
+        expect(url).to.equal('http://localhost:8080/html/create-character.html')
+      });
+    });
+  });
 
 });
