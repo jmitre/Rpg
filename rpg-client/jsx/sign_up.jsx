@@ -1,7 +1,8 @@
 var Sign_up = React.createClass({
   handleClick: function(e){
     e.preventDefault();
-    var data = $( this ).serialize();
+    console.log('SERIALIZE', $( 'form' ).serialize());
+    var data = $( this ).serialize('form');
     console.log('#####DATA#####', data);
     $.post('http://localhost:3000/sign-up', data, function(){
       window.location.ref = '../html/create-character.html'
@@ -11,7 +12,7 @@ var Sign_up = React.createClass({
   render: function(){
     return(
       <div>
-        <field>
+        <form>
           <legend>
             <label>Username:</label>
             <br/>
@@ -23,7 +24,7 @@ var Sign_up = React.createClass({
             <br/>
             <input type='submit' onClick={this.handleClick} id='create_account_button'/>
           </legend>
-        </field>
+        </form>
       </div>
     )
   }
