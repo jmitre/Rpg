@@ -12,9 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "nodemon": "^1.9.2",
     "protractor": "^3.3.0",
     "react": "^15.2.1",
-    "react-dom": "^15.2.1",
-    "nodemon": "^1.9.2"
+    "react-dom": "^15.2.1"
   }
 }
