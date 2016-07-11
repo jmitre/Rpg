@@ -8,6 +8,7 @@ var Sign_in = React.createClass({
             <br/>
             <input type='text' id='password_input'/>
           </legend>
+            <input type='submit' id='submit'/>
         </field>
       </div>
     )
