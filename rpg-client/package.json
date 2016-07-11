@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "protractor": "^3.3.0"
+    "protractor": "^3.3.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1"
   }
 }

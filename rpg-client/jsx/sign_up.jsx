@@ -4,8 +4,9 @@ var Sign_up = React.createClass({
       <div>
         <field>
           <legend>
-            <input type='text' id='username_input'>
-            <input type='text' id='password_input'>
+            <input type='text' id='username_input'/>
+            <br/>
+            <input type='text' id='password_input'/>
           </legend>
         </field>
       </div>
