@@ -7,6 +7,8 @@ var Sign_up = React.createClass({
             <input type='text' id='username_input'/>
             <br/>
             <input type='text' id='password_input'/>
+            <br/>
+            <input type='submit' id='create_account_button'/>
           </legend>
         </field>
       </div>

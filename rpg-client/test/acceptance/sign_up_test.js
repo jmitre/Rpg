@@ -18,12 +18,18 @@ describe('Sign up', function(){
     });
   });
 
-  it('should display fields to enter username and password', function(){
+  it('should display fields to enter username and password and button', function(){
     element(by.id('username_input')).isPresent().then(function(bool){
       expect(bool).to.equal(true);
     });
     element(by.id('password_input')).isPresent().then(function(bool){
       expect(bool).to.equal(true);
     });
+
+    element(by.id('create_account_button')).isPresent().then(function(bool){
+      expect(bool).to.equal(true);
+    });
   });
+
+
 });
