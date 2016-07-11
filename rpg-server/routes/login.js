@@ -8,12 +8,11 @@ router.get('/', function(req, res, next) {
 });
 
 /* POST Login page. */
+router.post('/', function(req, res, next){
+  db.get('users').insert(req.body, function(err, data){
+    res.send('inside insert');
+  });
+});
 
-
-function input(username){
-  if(username === '') return false;
-
-  return true;
-}
 
 module.exports = router;
