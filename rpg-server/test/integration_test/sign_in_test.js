@@ -6,13 +6,7 @@ var app = require('../../app');
 
 //GET
 describe('GET /', function(){
-  it('responds with a 200 status code', function (done) {
-        request(app).get('/')
-
-describe('POST /', function(){
-  it('responds with a 200 status code', function (done) {
-        request(app).post('/')
-
-          .expect(200, done)
-    });
+  it('responds with a 200 code', function(done) {
+    request(app).get('/').expect(200, done);
+  })
 });
