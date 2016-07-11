@@ -9,9 +9,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
-  db.get('users').insert(req.body, function(err, data){
-    res.send('inside insert');
-  });
+  if(checkCredentials(req.body)){
+    db.get('users').insert(req.body, function(err, data){
+      res.end('Created');
+    });
+  }
+  res.end();
 });
 
 module.exports = router;

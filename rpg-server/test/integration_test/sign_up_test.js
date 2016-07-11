@@ -15,6 +15,13 @@ describe('POST /sign-up', function(){
     });
   });
 
+  after(function (done) {
+    db.get('users').remove({}, function (err) {
+      if (err) done(err);
+      done();
+    });
+  });
+
   it('responds with a 200 status code', function (done) {
         request(app).post('/sign-up')
           .expect(200, done)
@@ -32,5 +39,19 @@ describe('POST /sign-up', function(){
       });
     });
   });
-  
+
+  it('given invalid credentials, does not create an account', function(done){
+    var user = {
+      name: "",
+      password: "123"
+    };
+
+    request(app).post('/sign-up').send(user).then(function(){
+      db.get('users').find({}).then(function(data){
+        expect(data.length).to.equal(0)
+        done();
+      });
+    });
+  });
+
 });
