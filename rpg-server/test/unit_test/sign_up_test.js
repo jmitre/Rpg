@@ -1,4 +1,5 @@
 var checkCredentials = require('../../logic/checkCredentials');
+var expect = require('chai').expect;
 
 describe('checkCredentials', function(){
   it('returns true with good credentials', function(){
