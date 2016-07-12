@@ -14,7 +14,7 @@ router.post('/', function(req, res, next){
       res.end('Created');
     });
   }
-  res.end();
+  res.end('Not Created');
 });
 
 module.exports = router;

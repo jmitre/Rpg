@@ -1,11 +1,19 @@
 var Sign_up = React.createClass({
   handleClick: function(e){
     e.preventDefault();
-    console.log('SERIALIZE', $( 'form' ).serialize());
-    var data = $( this ).serialize('form');
-    console.log('#####DATA#####', data);
-    $.post('http://localhost:3000/sign-up', data, function(){
-      window.location.ref = '../html/create-character.html'
+    var name = $( 'input:text[name=name]' ).val();
+    var pass = $( 'input:text[name=password]' ).val();
+    var data = {
+      name: name,
+      password: pass
+    };
+    console.log('#####DATA#####', name, '--',pass, 'as', data);
+    $.post('http://localhost:3000/sign-up', data).then(function(){
+      console.log("SUCCESS");
+      console.log('location', window.location.ref);
+      window.location.href = 'create-character.html';
+    }, function(){
+      console.log("FAILURE");
     });
   },
 
@@ -22,7 +30,7 @@ var Sign_up = React.createClass({
             <br/>
             <input type='text' name='password' id='password_input'/>
             <br/>
-            <input type='submit' onClick={this.handleClick} id='create_account_button'/>
+            <input type='submit' onClick={this.handleClick} id='create_account_button' />
           </legend>
         </form>
       </div>
