@@ -14,7 +14,7 @@ describe('GET /login', function(){
   });
 
   it('responds with a 200 code: found', function(done) {
-    request(app).get('/login').expect(200, done);
+    request(app).post('/login').expect(200, done);
   });
   it('responds with a 200 code given existing user in db', function(done){
     var user = {

@@ -9,12 +9,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next){
+  console.log(req.body);
   if(checkCredentials(req.body)){
     db.get('users').insert(req.body, function(err, data){
-      res.end('Created');
+      res.json(data._id);
     });
+  }else{
+    res.json('Not Created');
   }
-  res.end('Not Created');
 });
 
 module.exports = router;

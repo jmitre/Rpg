@@ -32,7 +32,9 @@ describe('POST /sign-up', function(){
       password: "123"
     };
 
-    request(app).post('/sign-up').send(user).then(function(){
+    console.log('Im running the test');
+
+    request(app).post('/sign-up').send(user).then(function(res){
       db.get('users').find({}).then(function(data){
         expect(data[0].name).to.equal('Jay')
         done();

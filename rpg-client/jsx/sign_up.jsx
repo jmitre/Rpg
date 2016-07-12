@@ -8,7 +8,8 @@ var Sign_up = React.createClass({
       password: pass
     };
     console.log('#####DATA#####', name, '--',pass, 'as', data);
-    $.post('http://localhost:3000/sign-up', data).then(function(){
+    $.post('http://localhost:3000/sign-up', data).then(function(res){
+      console.log('MY RESULT', res);
       console.log("SUCCESS");
       console.log('location', window.location.href);
       window.location.href = 'create-character.html';
