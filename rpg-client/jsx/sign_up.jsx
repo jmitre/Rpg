@@ -10,7 +10,7 @@ var Sign_up = React.createClass({
     console.log('#####DATA#####', name, '--',pass, 'as', data);
     $.post('http://localhost:3000/sign-up', data).then(function(){
       console.log("SUCCESS");
-      console.log('location', window.location.ref);
+      console.log('location', window.location.href);
       window.location.href = 'create-character.html';
     }, function(){
       console.log("FAILURE");
