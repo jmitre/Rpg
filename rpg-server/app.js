@@ -10,6 +10,7 @@ var cors = require('cors')
 var users = require('./routes/users');
 var sign_up = require('./routes/signUp');
 var login = require('./routes/login');
+var battleList = require('./routes/battleList');
 
 
 
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/login', login);
 app.use('/users', users);
 app.use('/sign-up',sign_up);
+app.use('/battle_list', battleList)
 
 
 
