@@ -9,9 +9,9 @@ var Sign_up = React.createClass({
     };
     console.log('#####DATA#####', name, '--',pass, 'as', data);
     $.post('http://localhost:3000/sign-up', data).then(function(res){
-      console.log('MY RESULT', res);
-      console.log("SUCCESS");
-      console.log('location', window.location.href);
+      document.cookie = '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      document.cookie = res;
+      console.log('My cookie', document.cookie);
       window.location.href = 'create-character.html';
     }, function(){
       console.log("FAILURE");
