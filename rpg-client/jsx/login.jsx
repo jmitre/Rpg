@@ -1,21 +1,34 @@
-var Sign_in_btn = React.createClass({
-  btn: function(e){
-      e.preventDefault()
-  }
-})
-
 var Sign_in = React.createClass({
+  handleClick: function(e){
+    e.preventDefault();
+    var name = $( 'input:text[name=name]' ).val();
+    var pass = $( 'input:text[name=password]' ).val();
+    var data = {
+      name: name,
+      password: pass
+    };
+    console.log('#####DATA#####', name, '--',pass, 'as', data);
+    $.post('http://localhost:3000/login', data).then(function(result){
+      if(result.LoggedIn === true){
+        window.location.href = 'battleList.html';
+      }
+    }, function(){
+      console.log("FAILURE");
+    });
+  },
   render: function(){
     return(
       <div>
-        <field>
+        <form>
           <legend>
-            <input type='text' id='username_input'/>
+            <label>Username:</label>
+            <input type='text' name='name' id='username_input'/>
             <br/>
-            <input type='text' id='password_input'/>
+            <label>Password:</label>
+            <input type='text' name='password' id='password_input'/>
           </legend>
-            <input type='submit' id='submit'/>
-        </field>
+            <input type='submit' onClick={this.handleClick} id='submit'/>
+        </form>
       </div>
     )
   }
