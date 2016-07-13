@@ -25,17 +25,12 @@ describe('POST /create-character', function(){
 
     var character = {
       clas: 'Mage',
-      level: 1,
-      xp: 0
     };
 
 
     db.get('users').insert(user, function(err, data){
-      var message = {
-        id: data._id,
-        character: character
-      }
-      request(app).post('/createCharacter').send(message).then(function(result){
+      character.id = data._id;
+      request(app).post('/createCharacter').send(character).then(function(result){
         db.get('users').find({}, function(err, data){
 
           expect(data[0].character.clas).to.equal('Mage');

@@ -8,11 +8,17 @@ router.post('/', function(req, res, next){
     res.json('No body');
     return;
   }
+  console.log('YOU SENT ME', req.body);
   db.get('users').find({_id: req.body.id}, function(err, data){
     var user = data[0];
-    user.character = req.body.character;
-
+    user.character = {
+      clas: req.body.clas,
+      level: 1,
+      xp: 0
+    }
+    console.log('THE USER IS NOW', user);
     db.get('users').update({_id: req.body.id}, user, function(err, data){
+      console.log(data);
       res.json('Successful')
     });
   });

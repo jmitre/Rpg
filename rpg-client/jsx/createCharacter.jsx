@@ -1,4 +1,19 @@
 var CreateCharacter = React.createClass({
+  createChar: function(e){
+    e.preventDefault();
+
+    var user = {};
+    user.id = document.cookie;
+    user.clas = $('#class option:selected').val(),
+
+
+    console.log(user);
+
+    $.post('http://localhost:3000/CreateCharacter', user).then(function(res){
+      console.log(res);
+      window.location.href = 'battleList.html';
+    });
+  },
   render: function(){
     return(
       <div>
@@ -9,12 +24,12 @@ var CreateCharacter = React.createClass({
         <h2>Mage</h2>
         <p id= 'mageExplanation'>This class uses a staff</p>
         <form>
-          <select name='class'>
+          <select name='class' id='class'>
             <option value= 'Warrior'>Warrior</option>
             <option value= 'Ranger'>Ranger</option>
             <option value= 'Mage'>Mage</option>
           </select>
-          <input type='submit' id='submit'></input>
+          <input type='submit' id='submit' onClick={this.createChar}></input>
         </form>
       </div>
     )
