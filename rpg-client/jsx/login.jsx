@@ -7,9 +7,11 @@ var Sign_in = React.createClass({
       name: name,
       password: pass
     };
-    console.log('#####DATA#####', name, '--',pass, 'as', data);
     $.post('http://localhost:3000/login', data).then(function(result){
-      if(result.LoggedIn === true){
+      console.log(result);
+      if(result.LoggedIn !== false){
+        document.cookie = '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        document.cookie = result.dataID;
         window.location.href = 'battleList.html';
       }
     }, function(){
