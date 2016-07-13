@@ -17,7 +17,7 @@ describe('POST /create-character', function(){
     request(app).post('/createCharacter').expect(200, done);
   });
 
-  xit('given an id and character object, it appends the user object in the database', function(done){
+  it('given an id and character object, it appends the user object in the database', function(done){
     var user = {
       name: 'Jay',
       password: 'password'
@@ -35,7 +35,7 @@ describe('POST /create-character', function(){
         id: data._id,
         character: character
       }
-      request(app).post(createCharacter).send(message).then(function(result){
+      request(app).post('/createCharacter').send(message).then(function(result){
         db.get('users').find({}, function(err, data){
           expect(data.character.clas).to.equal('Mage');
           done();
