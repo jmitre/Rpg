@@ -13,8 +13,8 @@ describe('GET /login', function(){
     });
   });
 
-  it('responds with a 200 code: found', function(done) {
-    request(app).post('/login').expect(200, done);
+  it('responds with a 404 code: when no data is sent', function(done) {
+    request(app).post('/login').expect(404, done);
   });
 
   it('responds with a 200 code given existing user in db', function(done){
