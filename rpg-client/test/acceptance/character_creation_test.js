@@ -1,5 +1,5 @@
 require('../helper');
-var db = require('../../../rpg-server/config/database');
+// var db = require('../../../rpg-server/config/database');
 
 before(function() {
   browser.baseUrl = 'http://localhost:8080';

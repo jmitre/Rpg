@@ -7,22 +7,17 @@ before(function() {
 
 beforeEach(function() {
   return browser.ignoreSynchronization = true;
+  db.get('users').remove({}, function(err){});
 
   var temp_user = {
     name: 'Jay',
     password: '123'
   }
-  db.get('users').insert(temp_user, function(err){
-    if (err) done(err);
-    done();
-  });
+  db.get('users').insert(temp_user, function(err){});
 });
 
 afterEach(function() {
-  db.get('users').remove({}, function(err){
-    if (err) done(err);
-    done();
-  });
+  db.get('users').remove({}, function(err){});
 });
 
 describe('Login', function(){
