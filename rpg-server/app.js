@@ -11,6 +11,7 @@ var users = require('./routes/users');
 var sign_up = require('./routes/signUp');
 var login = require('./routes/login');
 var battleList = require('./routes/battleList');
+var create_character = require('./routes/createCharacter')
 
 
 
@@ -34,7 +35,7 @@ app.use('/login', login);
 app.use('/users', users);
 app.use('/sign-up',sign_up);
 app.use('/battle_list', battleList)
-
+app.use('/CreateCharacter', create_character)
 
 
 // catch 404 and forward to error handler
