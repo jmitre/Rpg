@@ -11,15 +11,6 @@ beforeEach(function() {
     if (err) done(err);
     done();
   });
-
-  var temp_user = {
-    name: 'Jay',
-    password: '123'
-  }
-  db.get('users').insert(temp_user, function(err){
-    if (err) done(err);
-    done();
-  });
 });
 
 afterEach(function() {
@@ -51,7 +42,7 @@ describe('Sign up', function(){
     });
   });
 
-  xit('should redirect the user to the character creation page', function(){
+  it('should redirect the user to the character creation page', function(){
     element(by.id('username_input')).sendKeys('Jay');
     element(by.id('password_input')).sendKeys('password');
     element(by.id('create_account_button')).click().then(function(){
