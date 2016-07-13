@@ -37,7 +37,8 @@ describe('POST /create-character', function(){
       }
       request(app).post('/createCharacter').send(message).then(function(result){
         db.get('users').find({}, function(err, data){
-          expect(data.character.clas).to.equal('Mage');
+
+          expect(data[0].character.clas).to.equal('Mage');
           done();
         });
       });
