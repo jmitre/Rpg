@@ -31,6 +31,8 @@ var FightPage = React.createClass({
     $.get('http://localhost:3000/users/'+opponentId).then(function(res){
       theThis.setState({opponentName: res.name, opponentClass:res.character.clas, opponentLevel:res.character.level})
     })
+
+
   },
   checkIfDead: function(health){
     if(health <= 0){
@@ -98,6 +100,8 @@ var FightPage = React.createClass({
     this.state.opponentAttack = Math.floor(Math.random() * 10)
   },
   render: function(){
+    var percentage = (this.state.health / 16) + '%'
+    var points = (this.state.energyBar / 10) + '%'
     if(this.state.clas === 'Ranger'){
       return(
       <div>
@@ -106,10 +110,13 @@ var FightPage = React.createClass({
       <label id='level'>Level: {this.state.level}</label><br></br>
       <label id ='xp'>XP: {this.state.xp}</label><br></br>
       <label id='health'>Health: {this.state.health}</label><br></br>
-      <div className="progress-bar progress-bar-striped active" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+      <div className="progress-bar progress-bar-striped active" style={{width : percentage}}>
         <span className="sr-only">45% Complete</span>
-      </div>
-      <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br><br></br>
+      </div><br></br><br></br>
+      <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br>
+        <div  id='energyBar'className="progress-bar progress-bar-striped active" style={{width : points}}>
+          <span className="sr-only">45% Complete</span>
+        </div><br></br><br></br>
       <label id="ten">Requires 10 Energy Points</label>
       <button id="shoot" type="button" onClick={this.low}>Shoot</button><br></br>
       <label id="ten">Requires 30 Energy Points</label>

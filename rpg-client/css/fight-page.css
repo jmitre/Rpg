@@ -1,9 +1,13 @@
 .progress-bar{
   height: 3vh;
   width: 20vw;
-  background-color: red;
+  background-color: green;
   border-radius: 5px;
 }
-.sr-only{
-  
+
+#energyBar{
+  height: 3vh;
+  width: 20vw;
+  background-color: blue;
+  border-radius: 5px;
 }
