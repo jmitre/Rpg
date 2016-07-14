@@ -33,6 +33,14 @@ var FightPage = React.createClass({
     })
 
   },
+  checkIfDead: function(health){
+    if(health <= 0){
+      health = 0
+      document.cookie = document.cookie.split('#')[0] + '#' + document.cookie.split('#')[1] + '#' + 'l'
+      window.location.href = 'results_page.html';
+      alert("You Lose! HAHA");
+    }
+  },
   low: function(){
     var attackAmount = this.state.level * 2
     this.state.opponentHealth -= attackAmount
@@ -41,6 +49,7 @@ var FightPage = React.createClass({
     this.state.energyBar += 20
     this.enemyAttack
     this.state.health -= this.state.opponentAttack
+    this.checkIfDead(this.state.health)
     this.forceUpdate()
   },
   mid: function(){
@@ -51,6 +60,7 @@ var FightPage = React.createClass({
     this.state.energyBar += 20
     this.enemyAttack
     this.state.health -= this.state.opponentAttack
+    this.checkIfDead(this.state.health)
     this.forceUpdate()
   },
   high: function(){
@@ -61,6 +71,7 @@ var FightPage = React.createClass({
     this.state.energyBar += 20
     this.enemyAttack
     this.state.health -= this.state.opponentAttack
+    this.checkIfDead(this.state.health)
     this.forceUpdate()
   },
 
