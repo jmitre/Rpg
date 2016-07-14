@@ -31,10 +31,6 @@ var FightPage = React.createClass({
     $.get('http://localhost:3000/users/'+opponentId).then(function(res){
       theThis.setState({opponentName: res.name, opponentClass:res.character.clas, opponentLevel:res.character.level})
     })
-    $(function() {
-       $("#one").addClass("progress-bar-purple");
-       $("#two").addClass("progress-bar-orange");
-    }),
   },
   checkIfDead: function(health){
     if(health <= 0){
