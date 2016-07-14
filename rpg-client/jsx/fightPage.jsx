@@ -49,6 +49,7 @@ var FightPage = React.createClass({
       alert("You Win! Congrats");
     }
   },
+
   low: function(){
     var attackAmount = this.state.level * 2
     this.state.opponentHealth -= attackAmount
@@ -64,26 +65,34 @@ var FightPage = React.createClass({
   mid: function(){
     var attackAmount = this.state.level * 3
     this.state.opponentHealth -= attackAmount
-    this.state.energyBar -= 30
-    this.enemyAttack()
-    this.state.energyBar += 20
-    this.enemyAttack
-    this.state.health -= this.state.opponentAttack
-    this.checkIfDead(this.state.health)
-    this.checkIfWin(this.state.health, this.state.opponentHealth)
-    this.forceUpdate()
+    if(!(this.state.energyBar < 30)){
+      this.state.energyBar -= 30
+      this.enemyAttack()
+      this.state.energyBar += 20
+      this.enemyAttack
+      this.state.health -= this.state.opponentAttack
+      this.checkIfDead(this.state.health)
+      this.checkIfWin(this.state.health, this.state.opponentHealth)
+      this.forceUpdate()
+    }else{
+    alert("Not enough energy, at least 30 required")
+  }
   },
   high: function(){
     var attackAmount = this.state.level * 4
     this.state.opponentHealth -= attackAmount
-    this.state.energyBar -= 50
-    this.enemyAttack()
-    this.state.energyBar += 20
-    this.enemyAttack
-    this.state.health -= this.state.opponentAttack
-    this.checkIfDead(this.state.health)
-    this.checkIfWin(this.state.health, this.state.opponentHealth)
-    this.forceUpdate()
+    if(!(this.state.energyBar < 50)){
+      this.state.energyBar -= 50
+      this.enemyAttack()
+      this.state.energyBar += 20
+      this.enemyAttack
+      this.state.health -= this.state.opponentAttack
+      this.checkIfDead(this.state.health)
+      this.checkIfWin(this.state.health, this.state.opponentHealth)
+      this.forceUpdate()
+    }else{
+    alert("Not enough energy, at least 50 required")
+   }
   },
 
   enemyAttack: function(){
