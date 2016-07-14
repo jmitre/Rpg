@@ -1,5 +1,4 @@
 require('../helper');
-var db = require('../../../rpg-server/config/database');
 
 before(function() {
   browser.baseUrl = 'http://localhost:8080';
@@ -7,17 +6,6 @@ before(function() {
 
 beforeEach(function() {
   return browser.ignoreSynchronization = true;
-  db.get('users').remove({}, function(err){
-    if (err) done(err);
-    done();
-  });
-});
-
-afterEach(function() {
-  db.get('users').remove({}, function(err){
-    if (err) done(err);
-    done();
-  });
 });
 
 
@@ -30,6 +18,7 @@ describe('Sign up', function(){
   });
 
   it('should display fields to enter username and password and button', function(){
+    browser.get('/html/sign-up.html')
     element(by.id('username_input')).isPresent().then(function(bool){
       expect(bool).to.equal(true);
     });
@@ -43,11 +32,14 @@ describe('Sign up', function(){
   });
 
   it('should redirect the user to the character creation page', function(){
-    element(by.id('username_input')).sendKeys('Jay');
+    browser.get('/html/sign-up.html')
+    element(by.id('username_input')).sendKeys('luis');
     element(by.id('password_input')).sendKeys('password');
     element(by.id('create_account_button')).click().then(function(){
       browser.getCurrentUrl().then(function(url){
         expect(url).to.equal('http://localhost:8080/html/create-character.html')
+        element(by.cssContainingText('option', 'Mage')).click();
+        element(by.id('submit')).click();
       });
     });
   });

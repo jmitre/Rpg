@@ -28,7 +28,7 @@ describe('Given I visit the /results_page', function(){
       element(by.id('submit')).click();
 
       browser.get('/html/sign-up');
-      element(by.id('username_input')).sendKeys('Alex');
+      element(by.id('username_input')).sendKeys('Hunter');
       element(by.id('password_input')).sendKeys('password');
       element(by.id('create_account_button')).click()
 
@@ -40,7 +40,7 @@ describe('Given I visit the /results_page', function(){
 
       browser.get('/html/results_page.html');
       element(by.id('currentUser')).getText().then(function(text){
-        expect(text).to.equal('Name: Alex');
+        expect(text).to.equal('Name: Hunter');
       })
       element(by.id('currentEnemey')).getText().then(function(text){
         expect(text).to.equal('Name: Keenan');

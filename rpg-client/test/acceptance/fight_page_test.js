@@ -19,7 +19,7 @@ describe('Fight Page', function(){
 
   it('Displays your character info', function(){
     browser.get('/html/sign-up');
-    element(by.id('username_input')).sendKeys('Jay');
+    element(by.id('username_input')).sendKeys('Alex');
     element(by.id('password_input')).sendKeys('password');
     element(by.id('create_account_button')).click()
 

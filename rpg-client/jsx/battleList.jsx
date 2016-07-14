@@ -4,7 +4,7 @@ var Users = React.createClass({
     // console.log('PPPPPRRRRRROOOOOPPP', this.props.name)
       return (
         <div>
-        <li>{this.props.name}
+        <li>{this.props.name}-{this.props.charclass}-lvl:{this.props.level}
             <button type='button' id={this.props.index} onClick={this.props.func}>Fight {this.props.name}</button>
         </li>
         </div>
@@ -40,7 +40,7 @@ var Battle_List_Table = React.createClass({
     var parentThis = this;
     var users = this.state.userList.map(function(user, indx){
       return(
-        <Users key={indx} index={indx} name={user.name} func={parentThis.handleClick}/>
+        <Users key={indx} index={indx} name={user.name} charclass={user.character.clas} level={user.character.level} func={parentThis.handleClick}/>
       )
     })
     return(

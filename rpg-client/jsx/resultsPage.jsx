@@ -1,4 +1,7 @@
 var CurrentPlayers = React.createClass({
+  toBattleList: function(){
+    window.location.href = 'battleList.html'
+  },
   render: function(){
     var outcome = document.cookie.split('#')[2];
     if(outcome === 'w') {
@@ -26,6 +29,7 @@ var CurrentPlayers = React.createClass({
         <br/>
         <label id='currentEnemyXp'>XP: {this.props.enemy.xp}</label>
         <br/>
+        <button id='toBattle' onClick={this.toBattleList}>Prepare for another battle</button>
       </div>
     )
   }
