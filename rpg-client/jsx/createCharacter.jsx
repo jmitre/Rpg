@@ -18,11 +18,14 @@ var CreateCharacter = React.createClass({
     return(
       <div>
         <h2>Warrior</h2>
+        <img id='warrior' className='character' src="http://icons.iconarchive.com/icons/icons8/ios7/512/Military-Sword-icon.png"/>
         <p id='warriorExplanation'>This class uses a sword</p>
         <h2>Ranger</h2>
+        <img  id='ranger' className='character' src="https://cdn1.iconfinder.com/data/icons/game-rpg/500/arrow-512.png"/>
         <p id= 'rangerExplanation'>This class uses a bow</p>
         <h2>Mage</h2>
-        <p id= 'mageExplanation'>This class uses a staff</p>
+        <img id='mage' className='character' src="https://cdn1.iconfinder.com/data/icons/game-rpg/500/wand-512.png"/>
+        <p id='mageExplanation'>This class uses a staff</p>
         <form>
           <select name='class' id='class'>
             <option value= 'Warrior'>Warrior</option>
