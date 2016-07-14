@@ -97,7 +97,7 @@ var FightPage = React.createClass({
   },
 
   enemyAttack: function(){
-    this.state.opponentAttack = Math.floor(Math.random() * 10)
+    this.state.opponentAttack = Math.floor(Math.random() * 5) * this.state.opponentLevel
   },
   render: function(){
     if(this.state.health < 250){
@@ -108,9 +108,10 @@ var FightPage = React.createClass({
     }
     var percentage = (this.state.health / 16) + '%'
     var points = (this.state.energyBar / 10) + '%'
+    var enemyLife = (this.state.opponentHealth / 16) + '%'
     if(this.state.clas === 'Ranger'){
       return(
-      <div>
+      <div className="main" style={{marginLeft: '2.5vw'}}>
       <label id='username'>Name: {this.state.name}</label><br></br>
       <label id='class'>Class: {this.state.clas}</label><br></br>
       <label id='level'>Level: {this.state.level}</label><br></br>
@@ -132,19 +133,28 @@ var FightPage = React.createClass({
       <h2>Opponent:</h2>
       <label id='opponentName'>Name: {this.state.opponentName}</label><br></br>
       <label id='opponentClass'>Class: {this.state.opponentClass}</label><br></br>
+      <label id="opponentLevel">Level: {this.state.opponentLevel}</label><br></br>
       <label id='opponentHealth'>Health: {this.state.opponentHealth}</label><br></br>
-      <label id="opponentLevel">Level: {this.state.opponentLevel}</label>
+        <div className="progress-bar progress-bar-striped active" style={{width : enemyLife, backgroundColor: healthStatus}}>
+          <span className="sr-only">45% Complete</span>
+        </div><br></br><br></br>
       </div>)
     }
     else if(this.state.clas === 'Warrior'){
       return(
-      <div>
+      <div className="main" >
       <label id='username'>Name: {this.state.name}</label><br></br>
       <label id='class'>Class: {this.state.clas}</label><br></br>
       <label id='level'>Level: {this.state.level}</label><br></br>
       <label id ='xp'>XP: {this.state.xp}</label><br></br>
       <label id='health'>Health: {this.state.health}</label><br></br>
-      <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br><br></br>
+        <div className="progress-bar progress-bar-striped active" style={{width : percentage, backgroundColor: healthStatus}}>
+          <span className="sr-only">45% Complete</span>
+        </div><br></br><br></br>
+        <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br>
+          <div  id='energyBar'className="progress-bar progress-bar-striped active" style={{width : points}}>
+            <span className="sr-only">45% Complete</span>
+          </div><br></br><br></br>
       <label id="ten">Requires 10 Energy Points</label>
       <button id="sword" type="button" onClick={this.low}>Sword Attack</button><br></br>
       <label id="ten">Requires 30 Energy Points</label>
@@ -154,19 +164,28 @@ var FightPage = React.createClass({
       <h2>Opponent:</h2>
       <label id='opponentName'>Name: {this.state.opponentName}</label><br></br>
       <label id='opponentClass'>Class: {this.state.opponentClass}</label><br></br>
+      <label id="opponentLevel">Level: {this.state.opponentLevel}</label><br></br>
       <label id='opponentHealth'>Health: {this.state.opponentHealth}</label><br></br>
-      <label id="opponentLevel">Level: {this.state.opponentLevel}</label>
+        <div className="progress-bar progress-bar-striped active" style={{width : enemyLife, backgroundColor: healthStatus}}>
+          <span className="sr-only">45% Complete</span>
+        </div><br></br><br></br>
       </div>)
     }
     if(this.state.clas === 'Mage'){
       return(
-      <div>
+      <div className="main">
       <label id='username'>Name: {this.state.name}</label><br></br>
       <label id='class'>Class: {this.state.clas}</label><br></br>
       <label id='level'>Level: {this.state.level}</label><br></br>
       <label id ='xp'>XP: {this.state.xp}</label><br></br>
       <label id='health'>Health: {this.state.health}</label><br></br>
-      <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br><br></br>
+        <div className="progress-bar progress-bar-striped active" style={{width : percentage, backgroundColor: healthStatus}}>
+          <span className="sr-only">45% Complete</span>
+        </div><br></br><br></br>
+        <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br>
+          <div  id='energyBar'className="progress-bar progress-bar-striped active" style={{width : points}}>
+            <span className="sr-only">45% Complete</span>
+          </div><br></br><br></br>
       <label id="ten">Requires 10 Energy Points</label>
       <button id="wounding" type="button" onClick={this.low}>Wounding Spell</button><br></br>
       <label id="ten">Requires 30 Energy Points</label>
@@ -176,13 +195,16 @@ var FightPage = React.createClass({
       <h2>Opponent:</h2>
       <label id='opponentName'>Name: {this.state.opponentName}</label><br></br>
       <label id='opponentClass'>Class: {this.state.opponentClass}</label><br></br>
+      <label id="opponentLevel">Level: {this.state.opponentLevel}</label><br></br>
       <label id='opponentHealth'>Health: {this.state.opponentHealth}</label><br></br>
-      <label id="opponentLevel">Level: {this.state.opponentLevel}</label>
+        <div className="progress-bar progress-bar-striped active" style={{width : enemyLife, backgroundColor: healthStatus}}>
+          <span className="sr-only">45% Complete</span>
+        </div><br></br><br></br>
       </div>)
     }
 
     return(
-    <div>
+    <div className="main">
     <label id='username'>Name: {this.state.name}</label><br></br>
     <label>Class: {this.state.clas}</label><br></br>
     <label>Level: {this.state.level}</label><br></br>
