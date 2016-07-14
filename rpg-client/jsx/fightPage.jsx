@@ -10,9 +10,9 @@ var FightPage = React.createClass({
       clas: '',
       level: 0,
       xp: 0,
-      health: 357.9937665,
+      health: 400,
       opponentName: '',
-      opponentHealth: 400,
+      opponentHealth: 250,
       opponentClass: '',
       opponentLevel: 0,
       energyBar: 20,
@@ -41,6 +41,14 @@ var FightPage = React.createClass({
       alert("You Lose! HAHA");
     }
   },
+  checkIfWin: function(userHealth, opponentHealth){
+    if(opponentHealth <= 0 && userHealth > 0){
+      opponentHealth = 0
+      document.cookie = document.cookie.split('#')[0] + '#' + document.cookie.split('#')[1] + '#' + 'w'
+      window.location.href = 'results_page.html';
+      alert("You Win! Congrats");
+    }
+  },
   low: function(){
     var attackAmount = this.state.level * 2
     this.state.opponentHealth -= attackAmount
@@ -50,6 +58,7 @@ var FightPage = React.createClass({
     this.enemyAttack
     this.state.health -= this.state.opponentAttack
     this.checkIfDead(this.state.health)
+    this.checkIfWin(this.state.health, this.state.opponentHealth)
     this.forceUpdate()
   },
   mid: function(){
@@ -61,6 +70,7 @@ var FightPage = React.createClass({
     this.enemyAttack
     this.state.health -= this.state.opponentAttack
     this.checkIfDead(this.state.health)
+    this.checkIfWin(this.state.health, this.state.opponentHealth)
     this.forceUpdate()
   },
   high: function(){
@@ -72,6 +82,7 @@ var FightPage = React.createClass({
     this.enemyAttack
     this.state.health -= this.state.opponentAttack
     this.checkIfDead(this.state.health)
+    this.checkIfWin(this.state.health, this.state.opponentHealth)
     this.forceUpdate()
   },
 
