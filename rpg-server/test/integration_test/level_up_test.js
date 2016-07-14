@@ -40,5 +40,30 @@ describe('POST /users/xp/:id', function(){
 
 
     });
+
+    it('should level up if I gain enough xp', function(done){
+
+      var testingLevelUp = {
+        name: 'luis',
+        password: 'siul',
+        character: {
+          clas: 'Mage',
+          xp: 0,
+          level: 1
+        }
+      }
+
+      db.get('users').insert(testingLevelUp, function(err, data){
+        request(app).post('/users/xp/'+ data._id).send({xp: 100}).then(function(res){
+          db.get('users').find({}, function(err, data){
+            expect(data[0].character.xp).to.equal(0);
+            expect(data[0].character.level).to.equal(2);
+            done();
+          });
+        });
+      })
+
+
+    });
   });
 });
