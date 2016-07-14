@@ -100,6 +100,7 @@ var FightPage = React.createClass({
     this.state.opponentAttack = Math.floor(Math.random() * 10)
   },
   render: function(){
+    // if(this.state.health)
     var percentage = (this.state.health / 16) + '%'
     var points = (this.state.energyBar / 10) + '%'
     if(this.state.clas === 'Ranger'){
