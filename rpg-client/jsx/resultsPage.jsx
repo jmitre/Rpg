@@ -1,7 +1,13 @@
 var CurrentPlayers = React.createClass({
   render: function(){
+    var outcome = document.cookie.split('#')[2];
+    if(outcome === 'w') {
+      outcome = 'won';
+    }
+    if(outcome ==='l') outcome='lost'
     return(
       <div>
+        <h1 id='fightOutcome'>You {outcome}</h1>
         <h3>You:</h3>
         <label id='currentUser'>Name: {this.props.player.playerName}</label>
         <br/>
@@ -9,12 +15,17 @@ var CurrentPlayers = React.createClass({
         <br/>
         <label id='currentUserLevel'>Level: {this.props.player.level}</label>
         <br/>
+        <label id='currentUserXp'>XP: {this.props.player.xp}</label>
+        <br/>
         <h3>Enemy:</h3>
         <label id='currentEnemey'>Name: {this.props.enemy.playerName}</label>
         <br/>
-        <label id='currentEnemeyClass'>Class: {this.props.player.clas}</label>
+        <label id='currentEnemeyClass'>Class: {this.props.enemy.clas}</label>
         <br/>
-        <label id='currentEnemeyLevel'>Level: {this.props.player.level}</label>
+        <label id='currentEnemeyLevel'>Level: {this.props.enemy.level}</label>
+        <br/>
+        <label id='currentEnemyXp'>XP: {this.props.enemy.xp}</label>
+        <br/>
       </div>
     )
   }
@@ -27,12 +38,21 @@ var Results_page = React.createClass({
       enemy: {}
     }
   },
+  sendxp: function(){
+    console.log('IM SENDING LEVEL');
+    $.post('http://localhost:3000/users/xp/' + document.cookie.split('#')[0], {xp: 100}).then(function(res){
+      console.log('RRRERRERRRSRSTFKAFLHLH',res);
+      // window.location.href = 'battleList.html';
+    });
+  },
   componentDidMount: function(){
     var theThis = this;
+    if(document.cookie.split('#')[2] === 'w') this.sendxp();
 
     var myId = document.cookie.split('#')[0]
     var opponentId = document.cookie.split('#')[1]
     $.get('http://localhost:3000/users/'+myId).then(function(res){
+      console.log("MY CHAR", res);
       theThis.setState({player:{playerName: res.name, clas:res.character.clas, level:res.character.level, xp:res.character.xp}})
 
     })

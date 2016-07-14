@@ -46,5 +46,14 @@ describe('Given I visit the /results_page', function(){
         expect(text).to.equal('Name: Keenan');
       })
     });
+    it('show a label or either winning or losing', function(){
+      browser.get('/html/results_page.html');
+
+      browser.driver.sleep(2000)
+      element(by.id('fightOutcome')).isPresent().then(function(bool){
+        expect(bool).to.equal(true);
+      })
+    })
+
   });
 });
