@@ -35,7 +35,7 @@ describe('Given I visit the /results_page', function(){
       element(by.cssContainingText('option', 'Mage')).click();
       element(by.id('submit')).click();
 
-      // browser.driver.sleep(20000)
+      browser.driver.sleep(2000)
       element(by.buttonText('Fight Keenan')).click()
 
       browser.get('/html/results_page.html');

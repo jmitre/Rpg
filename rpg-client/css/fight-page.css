@@ -1,0 +1,9 @@
+.progress-bar{
+  height: 3vh;
+  width: 20vw;
+  background-color: red;
+  border-radius: 5px;
+}
+.sr-only{
+  
+}

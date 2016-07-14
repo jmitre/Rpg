@@ -31,7 +31,10 @@ var FightPage = React.createClass({
     $.get('http://localhost:3000/users/'+opponentId).then(function(res){
       theThis.setState({opponentName: res.name, opponentClass:res.character.clas, opponentLevel:res.character.level})
     })
-
+    $(function() {
+       $("#one").addClass("progress-bar-purple");
+       $("#two").addClass("progress-bar-orange");
+    }),
   },
   checkIfDead: function(health){
     if(health <= 0){
@@ -107,9 +110,15 @@ var FightPage = React.createClass({
       <label id='level'>Level: {this.state.level}</label><br></br>
       <label id ='xp'>XP: {this.state.xp}</label><br></br>
       <label id='health'>Health: {this.state.health}</label><br></br>
+      <div className="progress-bar progress-bar-striped active" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+        <span className="sr-only">45% Complete</span>
+      </div>
       <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br><br></br>
+      <label id="ten">Requires 10 Energy Points</label>
       <button id="shoot" type="button" onClick={this.low}>Shoot</button><br></br>
+      <label id="ten">Requires 30 Energy Points</label>
       <button id="flameArrow" type="button" onClick={this.mid}>Flame Arrow</button><br></br>
+      <label id="ten">Requires 50 Energy Points</label>
       <button id="iceArrow" type="button" onClick={this.high}>Ice Arrow</button><br></br><br></br>
       <h2>Opponent:</h2>
       <label id='opponentName'>Name: {this.state.opponentName}</label><br></br>
@@ -127,8 +136,11 @@ var FightPage = React.createClass({
       <label id ='xp'>XP: {this.state.xp}</label><br></br>
       <label id='health'>Health: {this.state.health}</label><br></br>
       <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br><br></br>
+      <label id="ten">Requires 10 Energy Points</label>
       <button id="sword" type="button" onClick={this.low}>Sword Attack</button><br></br>
+      <label id="ten">Requires 30 Energy Points</label>
       <button id="slice" type="button" onClick={this.mid}>Slice</button><br></br>
+      <label id="ten">Requires 50 Energy Points</label>
       <button id="eviscerate" type="button" onClick={this.high}>Eviscerate</button><br></br><br></br>
       <h2>Opponent:</h2>
       <label id='opponentName'>Name: {this.state.opponentName}</label><br></br>
@@ -146,8 +158,11 @@ var FightPage = React.createClass({
       <label id ='xp'>XP: {this.state.xp}</label><br></br>
       <label id='health'>Health: {this.state.health}</label><br></br>
       <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br><br></br>
+      <label id="ten">Requires 10 Energy Points</label>
       <button id="wounding" type="button" onClick={this.low}>Wounding Spell</button><br></br>
+      <label id="ten">Requires 30 Energy Points</label>
       <button id="parry" type="button" onClick={this.mid}>Parry</button><br></br>
+      <label id="ten">Requires 50 Energy Points</label>
       <button id="bash" type="button" onClick={this.high}>Bash Skull with Staff</button><br></br><br></br>
       <h2>Opponent:</h2>
       <label id='opponentName'>Name: {this.state.opponentName}</label><br></br>
