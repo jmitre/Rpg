@@ -1,3 +1,8 @@
+var Buttons = React.createClass({
+  render: function(){
+    return
+  }
+})
 var FightPage = React.createClass({
   getInitialState: function(){
     return({
@@ -9,7 +14,9 @@ var FightPage = React.createClass({
       opponentName: '',
       opponentHealth: 400,
       opponentClass: '',
-      opponentLevel: 0
+      opponentLevel: 0,
+      energyBar: 20,
+      opponentAttack: 10
     })
   },
   componentDidMount: function(){
@@ -26,6 +33,40 @@ var FightPage = React.createClass({
     })
 
   },
+  low: function(){
+    var attackAmount = this.state.level * 2
+    this.state.opponentHealth -= attackAmount
+    this.state.energyBar -= 10
+    this.enemyAttack()
+    this.state.energyBar += 20
+    this.enemyAttack
+    this.state.health -= this.state.opponentAttack
+    this.forceUpdate()
+  },
+  mid: function(){
+    var attackAmount = this.state.level * 3
+    this.state.opponentHealth -= attackAmount
+    this.state.energyBar -= 30
+    this.enemyAttack()
+    this.state.energyBar += 20
+    this.enemyAttack
+    this.state.health -= this.state.opponentAttack
+    this.forceUpdate()
+  },
+  high: function(){
+    var attackAmount = this.state.level * 4
+    this.state.opponentHealth -= attackAmount
+    this.state.energyBar -= 50
+    this.enemyAttack()
+    this.state.energyBar += 20
+    this.enemyAttack
+    this.state.health -= this.state.opponentAttack
+    this.forceUpdate()
+  },
+
+  enemyAttack: function(){
+    this.state.opponentAttack = Math.floor(Math.random() * 10)
+  },
   render: function(){
     if(this.state.clas === 'Ranger'){
       return(
@@ -34,10 +75,11 @@ var FightPage = React.createClass({
       <label id='class'>Class: {this.state.clas}</label><br></br>
       <label id='level'>Level: {this.state.level}</label><br></br>
       <label id ='xp'>XP: {this.state.xp}</label><br></br>
-      <label id='health'>Health: {this.state.health}</label><br></br><br></br>
-      <button id="shoot" type="button">Shoot</button><br></br>
-      <button id="flameArrow" type="button">Flame Arrow</button><br></br>
-      <button id="iceArrow" type="button">Ice Arrow</button><br></br><br></br>
+      <label id='health'>Health: {this.state.health}</label><br></br>
+      <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br><br></br>
+      <button id="shoot" type="button" onClick={this.low}>Shoot</button><br></br>
+      <button id="flameArrow" type="button" onClick={this.mid}>Flame Arrow</button><br></br>
+      <button id="iceArrow" type="button" onClick={this.high}>Ice Arrow</button><br></br><br></br>
       <h2>Opponent:</h2>
       <label id='opponentName'>Name: {this.state.opponentName}</label><br></br>
       <label id='opponentClass'>Class: {this.state.opponentClass}</label><br></br>
@@ -52,10 +94,11 @@ var FightPage = React.createClass({
       <label id='class'>Class: {this.state.clas}</label><br></br>
       <label id='level'>Level: {this.state.level}</label><br></br>
       <label id ='xp'>XP: {this.state.xp}</label><br></br>
-      <label id='health'>Health: {this.state.health}</label><br></br><br></br>
-      <button id="shoot" type="button">Sword Attack</button><br></br>
-      <button id="flameArrow" type="button">Slice</button><br></br>
-      <button id="iceArrow" type="button">Eviscerate</button><br></br><br></br>
+      <label id='health'>Health: {this.state.health}</label><br></br>
+      <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br><br></br>
+      <button id="sword" type="button" onClick={this.low}>Sword Attack</button><br></br>
+      <button id="slice" type="button" onClick={this.mid}>Slice</button><br></br>
+      <button id="eviscerate" type="button" onClick={this.high}>Eviscerate</button><br></br><br></br>
       <h2>Opponent:</h2>
       <label id='opponentName'>Name: {this.state.opponentName}</label><br></br>
       <label id='opponentClass'>Class: {this.state.opponentClass}</label><br></br>
@@ -70,10 +113,11 @@ var FightPage = React.createClass({
       <label id='class'>Class: {this.state.clas}</label><br></br>
       <label id='level'>Level: {this.state.level}</label><br></br>
       <label id ='xp'>XP: {this.state.xp}</label><br></br>
-      <label id='health'>Health: {this.state.health}</label><br></br><br></br>
-      <button id="shoot" type="button">Wounding Spell</button><br></br>
-      <button id="flameArrow" type="button">Parry</button><br></br>
-      <button id="iceArrow" type="button">Bash Skull with Staff</button><br></br><br></br>
+      <label id='health'>Health: {this.state.health}</label><br></br>
+      <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br><br></br>
+      <button id="wounding" type="button" onClick={this.low}>Wounding Spell</button><br></br>
+      <button id="parry" type="button" onClick={this.mid}>Parry</button><br></br>
+      <button id="bash" type="button" onClick={this.high}>Bash Skull with Staff</button><br></br><br></br>
       <h2>Opponent:</h2>
       <label id='opponentName'>Name: {this.state.opponentName}</label><br></br>
       <label id='opponentClass'>Class: {this.state.opponentClass}</label><br></br>
