@@ -31,7 +31,7 @@ describe('GET Users', function(){
     }
 
     db.get('users').insert(user, function(err, data){
-      console.log(data);
+      // console.log(data);
         request(app).get('/users/'+ data._id).then(function(res){
           expect(res.body.name).to.equal('Jay');
           done();
