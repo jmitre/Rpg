@@ -27,10 +27,22 @@ describe('Fight Page', function(){
     element(by.id('submit')).click();
     browser.get('/html/fight-page.html');
 
-    browser.driver.sleep(2000);
+
 
     element(by.id('username')).getText().then(function(text){
-      expect(text).to.equal('Jay');
+      expect(text).to.equal('Name: Jay');
+    })
+    element(by.id('class')).getText().then(function(text){
+      expect(text).to.equal('Class: Ranger');
+    })
+    element(by.id('level')).getText().then(function(text){
+      expect(text).to.equal('Level: 1');
+    })
+    element(by.id('xp')).getText().then(function(text){
+      expect(text).to.equal('XP: 0');
+    })
+    element(by.id('health')).getText().then(function(text){
+      expect(text).to.equal('Health: 357.9937665');
     })
   })
 })
