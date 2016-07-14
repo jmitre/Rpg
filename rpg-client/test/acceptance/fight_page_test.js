@@ -27,8 +27,6 @@ describe('Fight Page', function(){
     element(by.id('submit')).click();
     browser.get('/html/fight-page.html');
 
-
-
     element(by.id('username')).getText().then(function(text){
       expect(text).to.equal('Name: Jay');
     })

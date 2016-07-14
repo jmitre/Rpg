@@ -1,16 +1,24 @@
 
 var Users = React.createClass({
   render: function(){
-    console.log('PPPPPRRRRRROOOOOPPP', this.props.name)
+    // console.log('PPPPPRRRRRROOOOOPPP', this.props.name)
       return (
         <div>
-          <li>{this.props.name}</li>
+        <li>{this.props.name}
+            <button type='button' id={this.props.index} onClick={this.props.func}>Fight {this.props.name}</button>
+        </li>
         </div>
       )
   }
 });
 
 var Battle_List_Table = React.createClass({
+  handleClick: function(e){
+    e.preventDefault();
+    var enemy = this.state.userList[e.target.id];
+    document.cookie = document.cookie.split('#')[0] + '#' + enemy._id;
+    window.location.href = 'fight-page.html';
+  },
   getInitialState: function(){
     return {userList: []}
   },
@@ -29,13 +37,12 @@ var Battle_List_Table = React.createClass({
     })
   },
   render: function(){
+    var parentThis = this;
     var users = this.state.userList.map(function(user, indx){
-      console.log('INN MAPPPP', user);
       return(
-        <Users key={indx} name={user.name}/>
+        <Users key={indx} index={indx} name={user.name} func={parentThis.handleClick}/>
       )
     })
-    console.log('STTTTAAAAATTTE', this.state.userList);
     return(
       <div>
         {users}

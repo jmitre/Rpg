@@ -3,11 +3,11 @@ var CreateCharacter = React.createClass({
     e.preventDefault();
 
     var user = {};
-    user.id = document.cookie;
+    user.id = document.cookie.split('#')[0];
     user.clas = $('#class option:selected').val(),
 
-
-    console.log(user);
+    // console.log('IDDDD', document.cookie.split('#')[0]);
+    // console.log(user);
 
     $.post('http://localhost:3000/CreateCharacter', user).then(function(res){
       console.log(res);

@@ -12,10 +12,12 @@ var FightPage = React.createClass({
   },
   componentDidMount: function(){
     var theThis = this;
+
     var myId = document.cookie.split('#')[0]
     var opponentId = document.cookie.split('#')[1]
     $.get('http://localhost:3000/users/'+myId).then(function(res){
       theThis.setState({name: res.name, clas:res.character.clas, level:res.character.level, xp:res.character.xp})
+
     })
     $.get('http://localhost:3000/users/'+opponentId).then(function(res){
       theThis.setState({opponentName: res.name})
@@ -71,7 +73,7 @@ var FightPage = React.createClass({
         <label id='opponentHealth'>{this.state.opponentHealth}</label>
       </div>)
     }
-    //console.log('my name', this.state.name);
+
     return(
     <div>
     <label id='username'>Name: {this.state.name}</label><br></br>
