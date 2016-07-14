@@ -5,13 +5,20 @@ var FightPage = React.createClass({
       clas: '',
       level: 0,
       xp: 0,
-      health: 357.9937665
+      health: 357.9937665,
+      opponentName: '',
+      opponentHealth: 400
     })
   },
   componentDidMount: function(){
     var theThis = this;
-    $.get('http://localhost:3000/users/'+document.cookie).then(function(res){
+    var myId = document.cookie.split('#')[0]
+    var opponentId = document.cookie.split('#')[1]
+    $.get('http://localhost:3000/users/'+myId).then(function(res){
       theThis.setState({name: res.name, clas:res.character.clas, level:res.character.level, xp:res.character.xp})
+    })
+    $.get('http://localhost:3000/users/'+opponentId).then(function(res){
+      theThis.setState({opponentName: res.name})
     })
 
   },
@@ -26,7 +33,10 @@ var FightPage = React.createClass({
       <label id='health'>Health: {this.state.health}</label><br></br><br></br>
       <button id="shoot" type="button">Shoot</button><br></br>
       <button id="flameArrow" type="button">Flame Arrow</button><br></br>
-      <button id="iceArrow" type="button">Ice Arrow</button><br></br>
+      <button id="iceArrow" type="button">Ice Arrow</button><br></br><br></br>
+      <h2>Opponent:</h2><br></br>
+      <label id='opponentName'>{this.state.opponentName}</label><br></br>
+      <label id='opponentHealth'>{this.state.opponentHealth}</label>
       </div>)
     }
     else if(this.state.clas === 'Warrior'){
@@ -39,7 +49,10 @@ var FightPage = React.createClass({
       <label id='health'>Health: {this.state.health}</label><br></br><br></br>
       <button id="shoot" type="button">Sword Attack</button><br></br>
       <button id="flameArrow" type="button">Slice</button><br></br>
-      <button id="iceArrow" type="button">Eviscerate</button><br></br>
+      <button id="iceArrow" type="button">Eviscerate</button><br></br><br></br>
+        <h2>Opponent:</h2><br></br>
+        <label id='opponentName'>{this.state.opponentName}</label><br></br>
+        <label id='opponentHealth'>{this.state.opponentHealth}</label>
       </div>)
     }
     if(this.state.clas === 'Mage'){
@@ -52,7 +65,10 @@ var FightPage = React.createClass({
       <label id='health'>Health: {this.state.health}</label><br></br><br></br>
       <button id="shoot" type="button">Wounding Spell</button><br></br>
       <button id="flameArrow" type="button">Parry</button><br></br>
-      <button id="iceArrow" type="button">Bash Skull with Staff</button><br></br>
+      <button id="iceArrow" type="button">Bash Skull with Staff</button><br></br><br></br>
+        <h2>Opponent:</h2><br></br>
+        <label id='opponentName'>{this.state.opponentName}</label><br></br>
+        <label id='opponentHealth'>{this.state.opponentHealth}</label>
       </div>)
     }
     //console.log('my name', this.state.name);
