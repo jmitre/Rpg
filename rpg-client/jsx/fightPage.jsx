@@ -100,7 +100,12 @@ var FightPage = React.createClass({
     this.state.opponentAttack = Math.floor(Math.random() * 10)
   },
   render: function(){
-    // if(this.state.health)
+    if(this.state.health < 250){
+      var healthStatus = '#f0ad4e'
+    }
+    if(this.state.health < 100){
+      var healthStatus = 'red'
+    }
     var percentage = (this.state.health / 16) + '%'
     var points = (this.state.energyBar / 10) + '%'
     if(this.state.clas === 'Ranger'){
@@ -111,7 +116,7 @@ var FightPage = React.createClass({
       <label id='level'>Level: {this.state.level}</label><br></br>
       <label id ='xp'>XP: {this.state.xp}</label><br></br>
       <label id='health'>Health: {this.state.health}</label><br></br>
-      <div className="progress-bar progress-bar-striped active" style={{width : percentage}}>
+      <div className="progress-bar progress-bar-striped active" style={{width : percentage, backgroundColor: healthStatus}}>
         <span className="sr-only">45% Complete</span>
       </div><br></br><br></br>
       <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br>
