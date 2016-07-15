@@ -9,7 +9,7 @@ var CurrentPlayers = React.createClass({
     }
     if(outcome ==='l') outcome='lost'
     return(
-      <div>
+      <div style={{marginLeft: '2.5vw', color: 'blue'}}>
         <h1 id='fightOutcome'>You {outcome}</h1>
         <h3>You:</h3>
         <label id='currentUser'>Name: {this.props.player.playerName}</label>
