@@ -18,18 +18,23 @@ var Sign_in = React.createClass({
       console.log("FAILURE");
     });
   },
+  signUp: function(e){
+    e.preventDefault();
+    window.location.href = 'sign-up.html'
+  },
   render: function(){
     return(
-      <div>
+      <div className="text-center">
         <form>
           <legend>
-            <label>Username:</label>
+            <label >Username:</label>
             <input type='text' name='name' id='username_input'/>
             <br/>
             <label>Password:</label>
             <input type='text' name='password' id='password_input'/>
           </legend>
-            <input type='submit' onClick={this.handleClick} id='submit'/>
+            <input type='submit' className='login' value='Login' onClick={this.handleClick} id='submit'/>
+            <input type='submit' className='login' value='SignUp' onClick={this.signUp} id='submit'/>
         </form>
       </div>
     )
