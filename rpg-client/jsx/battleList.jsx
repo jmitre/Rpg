@@ -33,7 +33,7 @@ var Battle_List_Table = React.createClass({
       type: 'GET',
       success: function(objectListOfUsers) {
         objectListOfUsers = objectListOfUsers.filter(function(user){
-          if(user._id === document.cookie.split('#')[0]) return false
+          if(user._id === document.cookie.split('#')[0] || user.character === undefined) return false
           return true;
         });
         this.setState({userList: objectListOfUsers});

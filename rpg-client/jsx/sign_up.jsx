@@ -12,7 +12,13 @@ var Sign_up = React.createClass({
       document.cookie = '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
       document.cookie = res + '#';
       // console.log('My cookie', document.cookie);
-      window.location.href = 'create-character.html';
+      console.log('THE RESULT', res);
+      if(res !== 'Not Created'){
+        window.location.href = 'create-character.html';
+      }
+      else{
+        alert('Enter a username and password')
+      }
     }, function(){
       console.log("FAILURE");
     });
@@ -24,11 +30,9 @@ var Sign_up = React.createClass({
         <form>
           <legend>
             <label>Username:</label>
-            <br/>
             <input type='text' name='name' id='username_input'/>
             <br/>
             <label>Password:</label>
-            <br/>
             <input type='text' name='password' id='password_input'/>
             <br/>
             <input type='submit' onClick={this.handleClick} id='create_account_button' />
