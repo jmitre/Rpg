@@ -129,7 +129,7 @@ var FightPage = React.createClass({
       <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br>
         <div  id='energyBar'className="progress-bar progress-bar-striped active" style={{width : points}}>
           <span className="sr-only">45% Complete</span>
-        </div><br></br><br></br>
+        </div><br></br><br></br><br></br>
       <label id="ten">Requires 10 Energy Points</label>
       <button id="shoot" type="button" onClick={this.low}>Shoot</button><br></br>
       <label id="ten">Requires 30 Energy Points</label>
@@ -160,7 +160,7 @@ var FightPage = React.createClass({
         <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br>
           <div  id='energyBar'className="progress-bar progress-bar-striped active" style={{width : points}}>
             <span className="sr-only">45% Complete</span>
-          </div><br></br><br></br>
+          </div><br></br><br></br><br></br>
       <label id="ten">Requires 10 Energy Points</label>
       <button id="sword" type="button" onClick={this.low}>Sword Attack</button><br></br>
       <label id="ten">Requires 30 Energy Points</label>
@@ -191,7 +191,7 @@ var FightPage = React.createClass({
         <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br>
           <div  id='energyBar'className="progress-bar progress-bar-striped active" style={{width : points}}>
             <span className="sr-only">45% Complete</span>
-          </div><br></br><br></br>
+          </div><br></br><br></br><br></br>
       <label id="ten">Requires 10 Energy Points</label>
       <button id="wounding" type="button" onClick={this.low}>Wounding Spell</button><br></br>
       <label id="ten">Requires 30 Energy Points</label>
