@@ -148,7 +148,7 @@ var FightPage = React.createClass({
     }
     else if(this.state.clas === 'Warrior'){
       return(
-      <div className="main" >
+      <div className="main" style={{marginLeft: '2.5vw'}}>
       <label id='username'>Name: {this.state.name}</label><br></br>
       <label id='class'>Class: {this.state.clas}</label><br></br>
       <label id='level'>Level: {this.state.level}</label><br></br>
@@ -179,7 +179,7 @@ var FightPage = React.createClass({
     }
     if(this.state.clas === 'Mage'){
       return(
-      <div className="main">
+      <div className="main" style={{marginLeft: '2.5vw'}}>
       <label id='username'>Name: {this.state.name}</label><br></br>
       <label id='class'>Class: {this.state.clas}</label><br></br>
       <label id='level'>Level: {this.state.level}</label><br></br>
@@ -210,7 +210,7 @@ var FightPage = React.createClass({
     }
 
     return(
-    <div className="main">
+    <div className="main" style={{marginLeft: '2.5vw'}}>
     <label id='username'>Name: {this.state.name}</label><br></br>
     <label>Class: {this.state.clas}</label><br></br>
     <label>Level: {this.state.level}</label><br></br>
