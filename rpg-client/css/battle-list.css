@@ -1,7 +1,4 @@
-body{
-  background-image: url('../img/battlelist.jpeg');
-  background-position: right;
-}
+
 #list-of-opponents{
   display: flex;
   justify-content: center;
