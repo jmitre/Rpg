@@ -1,0 +1,12 @@
+#list-of-opponents{
+  display: flex;
+  justify-content: center;
+}
+
+th{
+  text-align: center;
+}
+
+#levels{
+  padding-left: 50px
+}

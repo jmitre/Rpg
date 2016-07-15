@@ -3,11 +3,14 @@ var Users = React.createClass({
   render: function(){
     // console.log('PPPPPRRRRRROOOOOPPP', this.props.name)
       return (
-        <div>
-        <li>{this.props.name}-{this.props.charclass}-lvl:{this.props.level}
-            <button type='button' id={this.props.index} onClick={this.props.func}>Fight {this.props.name}</button>
-        </li>
-        </div>
+        // <div className='list'>
+        <tr>
+            <td>{this.props.name}</td>
+            <td>{this.props.charclass}</td>
+            <td id='levels'>{this.props.level}</td>
+            <td><button type='button' id={this.props.index} onClick={this.props.func}>Fight {this.props.name}</button></td>
+        </tr>
+        // </div>
       )
   }
 });
@@ -48,9 +51,19 @@ var Battle_List_Table = React.createClass({
       )
     })
     return(
-      <div>
-        {users}
-      </div>
+      <table className='tabel table-striped' >
+        <thead>
+          <tr>
+            <th className='Headers'>UserName</th>
+            <th className='Headers'>Class</th>
+            <th className='Headers' id='levels'>Level</th>
+            <th className='Headers'>Fight</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users}
+        </tbody>
+      </table>
     );
   }
 })
