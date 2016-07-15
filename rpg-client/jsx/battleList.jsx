@@ -8,7 +8,7 @@ var Users = React.createClass({
             <td>{this.props.name}</td>
             <td>{this.props.charclass}</td>
             <td id='levels'>{this.props.level}</td>
-            <td><button type='button' id={this.props.index} onClick={this.props.func}>Fight {this.props.name}</button></td>
+            <td><button className="button" type='button' id={this.props.index} onClick={this.props.func}>Fight {this.props.name}</button></td>
         </tr>
         // </div>
       )
@@ -51,7 +51,7 @@ var Battle_List_Table = React.createClass({
       )
     })
     return(
-      <table className='tabel table-striped' >
+      <table className='table table-bordered' >
         <thead>
           <tr>
             <th className='Headers'>UserName</th>

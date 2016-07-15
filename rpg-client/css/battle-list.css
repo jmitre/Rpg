@@ -1,6 +1,15 @@
+body{
+  background-image: url('../img/battlelist.jpeg');
+  background-position: right;
+}
 #list-of-opponents{
   display: flex;
   justify-content: center;
+}
+
+.table{
+  background-color: white;
+  width: 10%;
 }
 
 th{
@@ -9,4 +18,8 @@ th{
 
 #levels{
   padding-left: 50px
+}
+
+h1{
+  background-color: white;
 }

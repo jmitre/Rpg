@@ -43,10 +43,8 @@ var Results_page = React.createClass({
     }
   },
   sendxp: function(){
-    console.log('IM SENDING LEVEL');
     $.post('http://localhost:3000/users/xp/' + document.cookie.split('#')[0], {xp: 100}).then(function(res){
-      console.log('RRRERRERRRSRSTFKAFLHLH',res);
-      // window.location.href = 'battleList.html';
+      console.log('...',res);
     });
   },
   componentDidMount: function(){
@@ -56,7 +54,7 @@ var Results_page = React.createClass({
     var myId = document.cookie.split('#')[0]
     var opponentId = document.cookie.split('#')[1]
     $.get('http://localhost:3000/users/'+myId).then(function(res){
-      console.log("MY CHAR", res);
+      // console.log("MY CHAR", res);
       theThis.setState({player:{playerName: res.name, clas:res.character.clas, level:res.character.level, xp:res.character.xp}})
 
     })
