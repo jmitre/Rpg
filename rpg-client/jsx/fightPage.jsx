@@ -123,13 +123,13 @@ var FightPage = React.createClass({
       <label id='level'>Level: {this.state.level}</label><br></br>
       <label id ='xp'>XP: {this.state.xp}</label><br></br>
       <label id='health'>Health: {this.state.health}</label><br></br>
-      <div className="progress-bar progress-bar-striped active" style={{width : percentage, backgroundColor: healthStatus}}>
-        <span className="sr-only">45% Complete</span>
-      </div><br></br><br></br>
-      <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br>
-        <div  id='energyBar'className="progress-bar progress-bar-striped active" style={{width : points}}>
+        <div className="progress-bar progress-bar-striped active" style={{width : percentage, backgroundColor: healthStatus}}>
           <span className="sr-only">45% Complete</span>
         </div><br></br><br></br><br></br>
+          <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br>
+          <div  id='energyBar'className="progress-bar progress-bar-striped active" style={{width : points}}>
+            <span className="sr-only">45% Complete</span>
+          </div><br></br><br></br><br></br>
       <label id="ten">Requires 10 Energy Points</label>
       <button id="shoot" type="button" onClick={this.low}>Shoot</button><br></br>
       <label id="ten">Requires 30 Energy Points</label>
@@ -156,8 +156,8 @@ var FightPage = React.createClass({
       <label id='health'>Health: {this.state.health}</label><br></br>
         <div className="progress-bar progress-bar-striped active" style={{width : percentage, backgroundColor: healthStatus}}>
           <span className="sr-only">45% Complete</span>
-        </div><br></br><br></br>
-        <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br>
+        </div><br></br><br></br><br></br>
+          <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br>
           <div  id='energyBar'className="progress-bar progress-bar-striped active" style={{width : points}}>
             <span className="sr-only">45% Complete</span>
           </div><br></br><br></br><br></br>
@@ -187,8 +187,8 @@ var FightPage = React.createClass({
       <label id='health'>Health: {this.state.health}</label><br></br>
         <div className="progress-bar progress-bar-striped active" style={{width : percentage, backgroundColor: healthStatus}}>
           <span className="sr-only">45% Complete</span>
-        </div><br></br><br></br>
-        <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br>
+        </div><br></br><br></br><br></br>
+          <label id='energy'>Energy Bar: {this.state.energyBar}</label><br></br>
           <div  id='energyBar'className="progress-bar progress-bar-striped active" style={{width : points}}>
             <span className="sr-only">45% Complete</span>
           </div><br></br><br></br><br></br>
