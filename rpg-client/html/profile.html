@@ -8,16 +8,16 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.js"></script>
     <!-- <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script> -->
     <!-- <script type="text/javascript" src="../calc-stats.js"></script> -->
-    <script type="text/babel" src="../jsx/battleList.jsx"></script>
+    <script type="text/babel" src="../jsx/profile.jsx"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/loginPage.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../css/battle-list.css">
-    <script> function goToProfile(){window.location.href='profile.html'}</script>
+    <script> function goToBattleList(){window.location.href='battleList.html'}</script>
   </head>
   <body>
-    <h1 class='text-center'>Battle List</h1>
-    <button class='center-block' onclick='goToProfile()'>View My Profile</button><br><br>
-    <div id="list-of-opponents" class="text-center"></div>
+    <h1 class="text-center">Profile Page</h1>
+    <div id="profile-div"></div>
+    <button class='center-block' onclick='goToBattleList()'>Get back into the fight</button><br><br>
   </body>
 </html>
